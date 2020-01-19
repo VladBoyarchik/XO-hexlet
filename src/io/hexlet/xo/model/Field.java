@@ -29,9 +29,7 @@ public class Field {
             throw new InvalidPointExceptionAbstract();
         }
 
-        if (field[point.x][point.y] != null) {
-            throw new PointAlreadyOccupatedException();
-        }
+
                 //тест??
     }
     private boolean checkPoint(final Point point){
