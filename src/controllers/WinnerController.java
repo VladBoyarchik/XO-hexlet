@@ -12,8 +12,8 @@ public class WinnerController {
               if (check(field, new Point(i,0), p -> new Point(p.x, p.y +1)))
                  return  field.getFigure(new Point(i,0));
             for (int i = 0; i< 3; i++)
-               if (check(field, new Point(i,0), p -> new Point(p.x+1, p.y )))
-                  return  field.getFigure(new Point(i,0));
+               if (check(field, new Point(0,i), p -> new Point(p.x+1, p.y )))
+                  return  field.getFigure(new Point(0,i));
             if (check(field, new Point(0,0), p -> new Point(p.x+1, p.y +1)))
                return  field.getFigure(new Point(0,0));
 
@@ -35,9 +35,11 @@ private boolean check(final Field field, final Point currentPoint, final IPointG
    try {
           currentFigure = field.getFigure(currentPoint);
 
-          nextFigure = field.getFigure(currentPoint);
 
 
+          if (currentFigure == null) return  false;
+
+          nextFigure = field.getFigure(nextPoint);
       }
 
       catch (final InvalidPointExceptionAbstract e) {
@@ -45,7 +47,7 @@ private boolean check(final Field field, final Point currentPoint, final IPointG
       }
 
 
-   if (currentFigure == null) return  false;
+
 
    if (currentFigure != nextFigure) return  false;
 
